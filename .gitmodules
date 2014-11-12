@@ -7,6 +7,3 @@
 [submodule "puppet/modules/composer"]
 	path = puppet/modules/composer
 	url = git@github.com:pro-vagrant/puppet-composer.git
-[submodule "puppet/modules/mysql"]
-	path = puppet/modules/mysql
-	url = git@github.com:pro-vagrant/puppet-mysql.git
