@@ -1,24 +1,31 @@
-Vagrant
-=======
+Symfony Box - source code
+=========================
 
-How to produce box named ``lorem-v0.1.2``:
+#1. Binary version
 
-    git checkout lorem-v0.1.2
+Binary version of a box is available at:
+https://vagrantcloud.com/gajdaw/boxes/symfony
+
+#2. How to produce this box?
+
+How to produce a box named ``symfony-v0.1.2``:
+
+    git checkout -b tmp symfony-v0.1.2
     vagrant up
-    vagrant package --output lorem-v0.1.2.box
-    vagrant box add lorem-v0.1.2 lorem-v0.1.2.box
+    vagrant package --output symfony-v0.1.2.box
+    vagrant box add symfony-v0.1.2 symfony-v0.1.2.box
 
-Configuration for box ``lorem-v0.1.2`` is stored in branch ``lorem``:
+Configuration for box ``symfony-v0.1.2`` is stored in branch ``symfony``:
 
-    git checkout lorem
+    git checkout symfony
 
 Versions are tagged as:
 
-    lorem-v0.0.1
-    lorem-v0.0.2
+    symfony-v0.1.2
+    symfony-v0.1.1
     ...
-    lorem-vX.Y.Z
+    symfony-vX.Y.Z
 
-Currently available branches/boxes:
+#3. Internals
 
-* ``precise32`` (e.g. ``precise32-v0.0.1``)
+#4. Example applications
