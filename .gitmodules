@@ -10,3 +10,15 @@
 [submodule "puppet/modules/mysql"]
 	path = puppet/modules/mysql
 	url = git@github.com:pro-vagrant/puppet-mysql.git
+[submodule "puppet/modules/phpunit"]
+	path = puppet/modules/phpunit
+	url = git@github.com:pro-vagrant/puppet-phpunit.git
+[submodule "puppet/modules/php-cs-fixer"]
+	path = puppet/modules/php-cs-fixer
+	url = git@github.com:pro-vagrant/puppet-php-cs-fixer.git
+[submodule "puppet/modules/box"]
+	path = puppet/modules/box
+	url = git@github.com:pro-vagrant/puppet-box.git
+[submodule "puppet/modules/environment"]
+	path = puppet/modules/environment
+	url = git@github.com:pro-vagrant/puppet-environment.git
