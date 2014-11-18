@@ -22,4 +22,6 @@ class {
 file { '/tmp/sessions':
     ensure => directory,
     mode   => 0777,
+    owner   => "www-data",
+    group   => "www-data"
 }
