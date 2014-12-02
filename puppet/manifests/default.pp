@@ -25,3 +25,13 @@ file { '/tmp/sessions':
     owner   => "www-data",
     group   => "www-data"
 }
+
+# Necessary due to symfony problems with sessions
+# stored inside shared vagrant directory.
+file { '/dev/shm/symfony2app':
+    ensure => directory,
+    mode   => 0777,
+    owner   => "www-data",
+    group   => "www-data"
+}
+
