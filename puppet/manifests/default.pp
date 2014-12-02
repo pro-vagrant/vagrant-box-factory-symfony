@@ -26,8 +26,7 @@ file { '/tmp/sessions':
     group   => "www-data"
 }
 
-# Necessary due to symfony problems with sessions
-# stored inside shared vagrant directory.
+# Necessary to move cache and logs to /dev/shm
 file { '/dev/shm/symfony2app':
     ensure => directory,
     mode   => 0777,
