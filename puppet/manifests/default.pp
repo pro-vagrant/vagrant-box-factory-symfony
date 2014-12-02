@@ -22,15 +22,15 @@ class {
 file { '/tmp/sessions':
     ensure => directory,
     mode   => 0777,
-    owner   => "www-data",
-    group   => "www-data"
+    owner   => "vagrant",
+    group   => "vagrant"
 }
 
 # Necessary to move cache and logs to /dev/shm
-file { '/dev/shm/symfony2app':
+file { '/tmp/symfony2app':
     ensure => directory,
     mode   => 0777,
-    owner   => "www-data",
-    group   => "www-data"
+    owner   => "vagrant",
+    group   => "vagrant"
 }
 
