@@ -21,36 +21,35 @@ class { 'composer':
     target_dir   => '/usr/local/bin'
 }
 
-# Necessary to move cache and logs to /tmp/symfony2app/app
 file { '/tmp/symfony2app':
     ensure  => directory,
     mode    => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
+    owner   => 'www-data',
+    group   => 'www-data'
 }
 
-# Necessary to move cache and logs to /tmp/symfony2app/app
 file { '/tmp/symfony2app/app':
     ensure  => directory,
     mode    => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
+    owner   => 'www-data',
+    group   => 'www-data',
+    require => File['/tmp/symfony2app']
 }
 
-# Necessary to move cache and logs to /tmp/symfony2app/app
 file { '/tmp/symfony2app/app/cache':
     ensure  => directory,
     mode    => 0777,
-    owner   => "www-data",
-    group   => "www-data"
+    owner   => 'www-data',
+    group   => 'www-data',
+    require => File['/tmp/symfony2app/app']
 }
 
-# Necessary to move cache and logs to /tmp/symfony2app/app
 file { '/tmp/symfony2app/app/logs':
     ensure  => directory,
     mode    => 0777,
-    owner   => "www-data",
-    group   => "www-data"
+    owner   => 'www-data',
+    group   => 'www-data',
+    require => File['/tmp/symfony2app/app']
 }
 
 # Necessary due to symfony problems with sessions
@@ -58,15 +57,16 @@ file { '/tmp/symfony2app/app/logs':
 file { '/tmp/symfony2app/app/cache/sessions':
     ensure  => directory,
     mode    => 0777,
-    owner   => "www-data",
-    group   => "www-data"
+    owner   => 'www-data',
+    group   => 'www-data',
+    require => File['/tmp/symfony2app/app/cache']
 }
 
 class { 'mysql::server': }
 
-mysql::db { "symfony":
-  user     => "symfony",
-  password => "symfony",
+mysql::db { 'symfony':
+  user     => 'symfony',
+  password => 'symfony',
   ensure   => present,
   charset  => 'utf8',
   require  => Class['mysql::server'],
