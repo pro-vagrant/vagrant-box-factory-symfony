@@ -22,3 +22,6 @@
 [submodule "puppet/modules/composer"]
 	path = puppet/modules/composer
 	url = git@github.com:willdurand/puppet-composer.git
+[submodule "puppet/modules/wget"]
+	path = puppet/modules/wget
+	url = git://github.com/maestrodev/puppet-wget.git
