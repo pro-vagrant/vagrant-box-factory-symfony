@@ -19,3 +19,6 @@
 [submodule "puppet/modules/environment"]
 	path = puppet/modules/environment
 	url = git@github.com:pro-vagrant/puppet-environment.git
+[submodule "puppet/modules/composer"]
+	path = puppet/modules/composer
+	url = git@github.com:willdurand/puppet-composer.git
