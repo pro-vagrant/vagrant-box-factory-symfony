@@ -41,16 +41,16 @@ file { '/tmp/symfony2app/app':
 file { '/tmp/symfony2app/app/cache':
     ensure  => directory,
     mode    => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
+    owner   => "www-data",
+    group   => "www-data"
 }
 
 # Necessary to move cache and logs to /tmp/symfony2app/app
 file { '/tmp/symfony2app/app/logs':
     ensure  => directory,
     mode    => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
+    owner   => "www-data",
+    group   => "www-data"
 }
 
 # Necessary due to symfony problems with sessions
@@ -58,8 +58,8 @@ file { '/tmp/symfony2app/app/logs':
 file { '/tmp/symfony2app/app/cache/sessions':
     ensure  => directory,
     mode    => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
+    owner   => "www-data",
+    group   => "www-data"
 }
 
 class { 'mysql::server': }
