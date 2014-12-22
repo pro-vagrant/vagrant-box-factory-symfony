@@ -8,7 +8,6 @@ stage { 'postupdate':
 
 class {
     'ubuntu':       stage => update, action => 'clean';
-    'mysql':        stage => main;
     'php5':         stage => main;
     'environment':  stage => main;
     'php-cs-fixer': stage => main;
