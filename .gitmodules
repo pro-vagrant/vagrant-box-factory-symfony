@@ -31,3 +31,6 @@
 [submodule "puppet/modules/cachedeps"]
 	path = puppet/modules/cachedeps
 	url = git@github.com:pro-vagrant/puppet-cachedeps.git
+[submodule "puppet/modules/vcsrepo"]
+	path = puppet/modules/vcsrepo
+	url = git@github.com:puppetlabs/puppetlabs-vcsrepo.git
