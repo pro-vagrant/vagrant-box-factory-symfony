@@ -62,9 +62,7 @@ file { '/tmp/symfony2app/app/cache/sessions':
     group   => "vagrant"
 }
 
-class { 'mysql::server':
-  override_options => { 'root_password' => 'secretPASSWORD', },
-}
+class { 'mysql::server': }
 
 mysql::db { "symfony":
   user     => "symfony",
