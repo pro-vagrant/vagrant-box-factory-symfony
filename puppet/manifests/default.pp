@@ -63,12 +63,12 @@ file { '/tmp/symfony2app/app/cache/sessions':
 }
 
 class { 'mysql::server':
-  override_options => { 'root_password' => '', },
+  override_options => { 'root_password' => 'secretPASSWORD', },
 }
 
-mysql::db { "appdb":
-  user     => "admin",
-  password => "secretPASSWORD",
+mysql::db { "symfony":
+  user     => "symfony",
+  password => "symfony",
   ensure   => present,
   charset  => 'utf8',
   require  => Class['mysql::server'],
