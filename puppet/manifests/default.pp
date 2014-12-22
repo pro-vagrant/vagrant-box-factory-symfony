@@ -17,20 +17,43 @@ class {
     'phpunit':      stage => main;
 }
 
+# Necessary to move cache and logs to /tmp/symfony2app/app
+file { '/tmp/symfony2app':
+    ensure  => directory,
+    mode    => 0777,
+    owner   => "vagrant",
+    group   => "vagrant"
+}
+
+# Necessary to move cache and logs to /tmp/symfony2app/app
+file { '/tmp/symfony2app/app':
+    ensure  => directory,
+    mode    => 0777,
+    owner   => "vagrant",
+    group   => "vagrant"
+}
+
+# Necessary to move cache and logs to /tmp/symfony2app/app
+file { '/tmp/symfony2app/app/cache':
+    ensure  => directory,
+    mode    => 0777,
+    owner   => "vagrant",
+    group   => "vagrant"
+}
+
+# Necessary to move cache and logs to /tmp/symfony2app/app
+file { '/tmp/symfony2app/app/logs':
+    ensure  => directory,
+    mode    => 0777,
+    owner   => "vagrant",
+    group   => "vagrant"
+}
+
 # Necessary due to symfony problems with sessions
 # stored inside shared vagrant directory.
-file { '/tmp/sessions':
-    ensure => directory,
-    mode   => 0777,
+file { '/tmp/symfony2app/app/cache/sessions':
+    ensure  => directory,
+    mode    => 0777,
     owner   => "vagrant",
     group   => "vagrant"
 }
-
-# Necessary to move cache and logs to /dev/shm
-file { '/tmp/symfony2app':
-    ensure => directory,
-    mode   => 0777,
-    owner   => "vagrant",
-    group   => "vagrant"
-}
-
