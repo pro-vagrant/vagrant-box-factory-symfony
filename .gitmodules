@@ -1,9 +1,6 @@
 [submodule "puppet/modules/ubuntu"]
 	path = puppet/modules/ubuntu
 	url = git@github.com:pro-vagrant/puppet-ubuntu.git
-[submodule "puppet/modules/php5"]
-	path = puppet/modules/php5
-	url = git@github.com:pro-vagrant/puppet-php5.git
 [submodule "puppet/modules/phpunit"]
 	path = puppet/modules/phpunit
 	url = git@github.com:pro-vagrant/puppet-phpunit.git
