@@ -4,9 +4,6 @@
 [submodule "puppet/modules/php5"]
 	path = puppet/modules/php5
 	url = git@github.com:pro-vagrant/puppet-php5.git
-[submodule "puppet/modules/mysql"]
-	path = puppet/modules/mysql
-	url = git@github.com:pro-vagrant/puppet-mysql.git
 [submodule "puppet/modules/phpunit"]
 	path = puppet/modules/phpunit
 	url = git@github.com:pro-vagrant/puppet-phpunit.git
