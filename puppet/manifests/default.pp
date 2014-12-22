@@ -10,11 +10,16 @@ class {
     'ubuntu':       stage => update, action => 'clean';
     'mysql':        stage => main;
     'php5':         stage => main;
-    'composer':     stage => main;
     'environment':  stage => main;
     'php-cs-fixer': stage => main;
     'box':          stage => main;
     'phpunit':      stage => main;
+}
+
+class { 'composer':
+    stage        => main,
+    command_name => 'composer',
+    target_dir   => '/usr/local/bin'
 }
 
 # Necessary to move cache and logs to /tmp/symfony2app/app
