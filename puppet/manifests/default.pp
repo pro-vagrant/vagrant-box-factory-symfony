@@ -72,3 +72,8 @@ mysql::db { 'symfony':
   require  => Class['mysql::server'],
 }
 
+
+class { 'cachedeps':
+    stage => main,
+    require => Class['composer']
+}
