@@ -9,10 +9,10 @@ stage { 'postupdate':
 class {
     'ubuntu':       stage => update, action => 'clean';
     'php5':         stage => main;
-#    'environment':  stage => main;
-#    'php-cs-fixer': stage => main;
-#    'box':          stage => main;
-#    'phpunit':      stage => main;
+    'environment':  stage => main;
+    'php-cs-fixer': stage => main;
+    'box':          stage => main;
+    'phpunit':      stage => main;
 }
 
 class { 'composer':
@@ -72,11 +72,10 @@ mysql::db { 'symfony':
   require  => Class['mysql::server']
 }
 
-
-#class { 'cachedeps':
-#    stage => main,
-#    require => Class['composer']
-#}
+class { 'cachedeps':
+    stage => main,
+    require => Class['composer']
+}
 
 file { '/var/www/html':
     path    => '/var/www/html',
