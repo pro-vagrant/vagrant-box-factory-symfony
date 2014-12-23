@@ -29,3 +29,19 @@ Versions are tagged as:
 #3. Internals
 
 #4. Example applications
+
+#5. References
+
+
+http://nater1067.github.io/blog/2014/08/25/spinning-up-symfony-2-development-environments-with-vagrant/
+
+https://github.com/puphpet/puphpet/issues/138
+
+
+Setting up permissions:
+
+http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup
+
+
+
+https://github.com/symfony/symfony-standard/blob/e8bffd160e3e73423565f5eba68a8b77f04c6f99/vagrant/puppet/manifests/symfony.pp
