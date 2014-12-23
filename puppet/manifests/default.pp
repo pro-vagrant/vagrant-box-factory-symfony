@@ -6,6 +6,10 @@ stage { 'postupdate':
     before => Stage['main']
 }
 
+stage { 'final':
+    after => Stage['main']
+}
+
 class {
     'ubuntu':       stage => update, action => 'clean';
     'php5':         stage => main;
@@ -77,3 +81,15 @@ class { 'cachedeps':
     stage => main,
     require => Class['composer']
 }
+
+file { '/var/www/html':
+    path    => '/var/www/html',
+    ensure  => link,
+    force   => true,
+    target  => '/vagrant/web',
+    require => [Package['php5']],
+    notify  => Exec['php5:restart'],
+    stage   => final
+}
+
+
