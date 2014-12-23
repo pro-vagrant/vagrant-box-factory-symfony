@@ -6,17 +6,13 @@ stage { 'postupdate':
     before => Stage['main']
 }
 
-stage { 'final':
-    after => Stage['main']
-}
-
 class {
     'ubuntu':       stage => update, action => 'clean';
     'php5':         stage => main;
-    'environment':  stage => main;
-    'php-cs-fixer': stage => main;
-    'box':          stage => main;
-    'phpunit':      stage => main;
+#    'environment':  stage => main;
+#    'php-cs-fixer': stage => main;
+#    'box':          stage => main;
+#    'phpunit':      stage => main;
 }
 
 class { 'composer':
@@ -77,19 +73,16 @@ mysql::db { 'symfony':
 }
 
 
-class { 'cachedeps':
-    stage => main,
-    require => Class['composer']
-}
+#class { 'cachedeps':
+#    stage => main,
+#    require => Class['composer']
+#}
 
 file { '/var/www/html':
     path    => '/var/www/html',
     ensure  => link,
     force   => true,
     target  => '/vagrant/web',
-    require => [Package['php5']],
-    notify  => Exec['php5:restart'],
-    stage   => final
+    require => Package['php5'],
+    notify  => Exec['php5:restart']
 }
-
-
