@@ -69,7 +69,7 @@ mysql::db { 'symfony':
   password => 'symfony',
   ensure   => present,
   charset  => 'utf8',
-  require  => Class['mysql::server'],
+  require  => Class['mysql::server']
 }
 
 
