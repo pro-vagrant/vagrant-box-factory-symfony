@@ -13,42 +13,43 @@ class {
     'php-cs-fixer': stage => main;
     'box':          stage => main;
     'phpunit':      stage => main;
+    'composer':     stage => main;
 }
 
-class { 'composer':
-    stage        => main,
-    command_name => 'composer',
-    target_dir   => '/usr/local/bin'
-}
+#class { 'composer':
+#    stage        => main,
+#    command_name => 'composer',
+#    target_dir   => '/usr/local/bin'
+#}
 
 file { '/tmp/symfony2app':
     ensure  => directory,
     mode    => 0777,
-    owner   => 'www-data',
-    group   => 'www-data'
+    owner   => 'vagrant',
+    group   => 'vagrant'
 }
 
 file { '/tmp/symfony2app/app':
     ensure  => directory,
     mode    => 0777,
-    owner   => 'www-data',
-    group   => 'www-data',
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => File['/tmp/symfony2app']
 }
 
 file { '/tmp/symfony2app/app/cache':
     ensure  => directory,
     mode    => 0777,
-    owner   => 'www-data',
-    group   => 'www-data',
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => File['/tmp/symfony2app/app']
 }
 
 file { '/tmp/symfony2app/app/logs':
     ensure  => directory,
     mode    => 0777,
-    owner   => 'www-data',
-    group   => 'www-data',
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => File['/tmp/symfony2app/app']
 }
 
@@ -57,8 +58,8 @@ file { '/tmp/symfony2app/app/logs':
 file { '/tmp/symfony2app/app/cache/sessions':
     ensure  => directory,
     mode    => 0777,
-    owner   => 'www-data',
-    group   => 'www-data',
+    owner   => 'vagrant',
+    group   => 'vagrant',
     require => File['/tmp/symfony2app/app/cache']
 }
 
@@ -74,6 +75,6 @@ mysql::db { 'symfony':
 
 
 class { 'cachedeps':
-    stage => main,
+#    stage => main,
     require => Class['composer']
 }
