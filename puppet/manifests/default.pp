@@ -13,14 +13,13 @@ class {
     'php-cs-fixer': stage => main;
     'box':          stage => main;
     'phpunit':      stage => main;
-    'composer':     stage => main;
 }
 
-#class { 'composer':
-#    stage        => main,
-#    command_name => 'composer',
-#    target_dir   => '/usr/local/bin'
-#}
+class { 'composer':
+    stage        => main,
+    command_name => 'composer',
+    target_dir   => '/usr/local/bin'
+}
 
 file { '/tmp/symfony2app':
     ensure  => directory,
@@ -75,6 +74,6 @@ mysql::db { 'symfony':
 
 
 class { 'cachedeps':
-#    stage => main,
+    stage => main,
     require => Class['composer']
 }
