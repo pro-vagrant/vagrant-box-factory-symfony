@@ -76,8 +76,8 @@ mysql::db { 'symfony':
 }
 
 class { 'cachedeps':
-    stage => main,
-    require => Class['composer']
+    stage   => main,
+    require => Class['php_phars']
 }
 
 file { '/var/www/html':
