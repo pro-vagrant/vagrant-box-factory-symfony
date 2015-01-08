@@ -37,3 +37,6 @@
 [submodule "puppet/modules/php_phars"]
 	path = puppet/modules/php_phars
 	url = git@github.com:pro-vagrant/puppet-php_phars.git
+[submodule "puppet/modules/nodejs"]
+	path = puppet/modules/nodejs
+	url = git@github.com:pro-vagrant/puppet-nodejs.git
