@@ -7,9 +7,10 @@ stage { 'postupdate':
 }
 
 class {
-    'ubuntu':       stage => update, action => 'clean';
-    'php5':         stage => main;
-    'environment':  stage => main;
+    'ubuntu':      stage => update, action => 'clean';
+    'php5':        stage => main;
+    'environment': stage => main;
+    'nodejs':      stage => main;
 }
 
 class { 'php_phars':
