@@ -10,15 +10,11 @@ class {
     'ubuntu':       stage => update, action => 'clean';
     'php5':         stage => main;
     'environment':  stage => main;
-    'php-cs-fixer': stage => main;
-    'box':          stage => main;
-    'phpunit':      stage => main;
 }
 
-class { 'composer':
-    stage        => main,
-    command_name => 'composer',
-    target_dir   => '/usr/local/bin'
+class { 'php_phars':
+    stage => main,
+    all   => true,
 }
 
 file { '/tmp/symfony2app':
