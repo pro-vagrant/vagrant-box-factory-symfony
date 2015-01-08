@@ -43,3 +43,6 @@
 [submodule "filefetcher"]
 	path = filefetcher
 	url = git@github.com:pro-vagrant/puppet-filefetcher.git
+[submodule "puppet/modules/filefetcher"]
+	path = puppet/modules/filefetcher
+	url = git@github.com:pro-vagrant/puppet-filefetcher.git
