@@ -40,3 +40,6 @@
 [submodule "puppet/modules/nodejs"]
 	path = puppet/modules/nodejs
 	url = git@github.com:pro-vagrant/puppet-nodejs.git
+[submodule "filefetcher"]
+	path = filefetcher
+	url = git@github.com:pro-vagrant/puppet-filefetcher.git
