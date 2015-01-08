@@ -13,6 +13,12 @@ class {
     'nodejs':      stage => main;
 }
 
+exec { 'install less node module':
+    path    => '/usr/bin:/bin:/usr/sbin:/sbin',
+    command => 'npm install -g less &> /dev/null',
+    require => Class['nodejs'],
+}
+
 class { 'php_phars':
     stage => main,
     all   => true,
