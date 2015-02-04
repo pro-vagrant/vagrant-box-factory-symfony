@@ -75,10 +75,10 @@ mysql::db { 'symfony':
   require  => Class['mysql::server']
 }
 
-class { 'cachedeps':
-    stage   => main,
-    require => Class['php_phars']
-}
+#class { 'cachedeps':
+#    stage   => main,
+#    require => Class['php_phars']
+#}
 
 file { '/var/www/html':
     path    => '/var/www/html',
