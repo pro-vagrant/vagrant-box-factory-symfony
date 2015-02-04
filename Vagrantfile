@@ -13,15 +13,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 $script = <<SCRIPT
 echo Install Puppet modules...
 
-puppet module install gajdaw/ubuntu
-puppet module install puppetlabs/puppetlabs-stdlib
-puppet module install gajdaw/php_phars
-puppet module install gajdaw/environment
-puppet module install gajdaw/php5
-puppet module install puppetlabs/puppetlabs-mysql
-#puppet module install gajdaw/cachedeps
-puppet module install gajdaw/vcsrepo
-puppet module install gajdaw/nodejs
+puppet module install gajdaw-ubuntu --force
+puppet module install puppetlabs-stdlib --force
+puppet module install gajdaw-php_phars --force
+puppet module install gajdaw-environment --force
+puppet module install gajdaw-php5 --force
+puppet module install puppetlabs-mysql --force
+#puppet module install gajdaw-cachedeps --force
+puppet module install gajdaw-vcsrepository --force
+puppet module install gajdaw-nodejs --force
 
 SCRIPT
 
