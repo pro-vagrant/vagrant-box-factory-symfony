@@ -16,9 +16,6 @@
 [submodule "puppet/modules/composer"]
 	path = puppet/modules/composer
 	url = git@github.com:willdurand/puppet-composer.git
-[submodule "puppet/modules/wget"]
-	path = puppet/modules/wget
-	url = git://github.com/maestrodev/puppet-wget.git
 [submodule "puppet/modules/php5"]
 	path = puppet/modules/php5
 	url = git@github.com:pro-vagrant/puppet-php5.git
