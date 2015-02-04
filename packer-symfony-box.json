@@ -16,7 +16,8 @@
     },
     {
       "type": "puppet-masterless",
-      "manifest_file": "puppet/manifests/default.pp"
+      "manifest_file": "puppet/manifests/default.pp",
+      "execute_command": "{{.FacterVars}}{{if .Sudo}} sudo -E {{end}}puppet apply --verbose --detailed-exitcodes {{.ManifestFile}}"
     }
   ],
   "post-processors": [{
