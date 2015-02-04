@@ -8,6 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", 1024]
   end
 
+  config.vm.provision "file", source: "box-version.txt", destination: "box-version.txt"
+
   config.vm.provision :puppet do |puppet|
     puppet.module_path    = "puppet/modules"
     puppet.manifests_path = "puppet/manifests"
