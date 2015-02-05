@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "file", source: "box-version.txt", destination: "box-version.txt"
+  config.vm.provision "file", source: "box-name.txt", destination: "box-name.txt"
 
   config.vm.provision "shell", path: "script.sh"
 
