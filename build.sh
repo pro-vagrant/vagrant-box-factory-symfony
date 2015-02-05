@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-version=`cat box-version.txt`
+version=`git describe`
 
-vagrant destroy -f
 vagrant up
-vagrant package --output "symfony-v${version}.box"
+vagrant package --output "symfony-${version}.box"
