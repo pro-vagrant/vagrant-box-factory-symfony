@@ -1,10 +1,12 @@
 include stdlib
+include mysql::server
+include ::apache::mod::rewrite
+include php5
+include environment
+include nodejs
 
 class {
-    'ubuntu':      stage => setup, action => 'clean';
-    'php5':        stage => main;
-    'environment': stage => main;
-    'nodejs':      stage => main;
+    'ubuntu': stage => setup, action => 'clean';
 }
 
 exec { 'install less node module':
@@ -14,24 +16,16 @@ exec { 'install less node module':
 }
 
 class { 'php_phars':
-    stage => main,
     all   => true,
 }
 
-# Do not create a database.
-# It will be done in ./reload.bash
-class { 'mysql::server': }
-
 class { 'apache':
-    stage         => runtime,
     mpm_module    => prefork,
     user          => vagrant,
     group         => vagrant,
     default_vhost => false,
     require       => Class['php5'];
 }
-
-class {'::apache::mod::rewrite': }
 
 class {'::apache::mod::php':
     path => "${::apache::params::lib_path}/libphp5.so",
