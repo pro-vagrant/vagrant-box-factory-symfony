@@ -8,8 +8,7 @@ stage { 'postupdate':
 
 class {
     'ubuntu':      stage => update, action => 'clean';
-    'apache':      stage => main, default_vhost => false;
-    'php5':        stage => main, require => Class['apache'];
+    'php5':        stage => main;
     'environment': stage => main;
     'nodejs':      stage => main;
 }
@@ -91,11 +90,40 @@ mysql::db { 'symfony':
 #}
 
 
-apache::vhost { 'app.lh':
-    port          => '80',
-    docroot       => '/vagrant/web',
-    docroot_owner => 'vagrant',
-    docroot_group => 'vagrant',
-    notify        => Exec['php5:restart'],
+#apache::vhost { 'app.lh':
+#    port          => '80',
+#    docroot       => '/vagrant/web',
+#    docroot_owner => 'vagrant',
+#    docroot_group => 'vagrant',
+#    notify        => Exec['php5:restart'],
+#}
+
+
+class { 'apache':
+    stage         => main,
+    mpm_module    => prefork,
+    user          => vagrant,
+    group         => vagrant,
+    default_vhost => false;
 }
 
+class {'::apache::mod::rewrite': }
+
+class {'::apache::mod::php':
+    path => "${::apache::params::lib_path}/libphp5.so",
+}
+
+apache::vhost { 'app.lh':
+    port          => '80',
+    docroot       => '/vagrant/sample-app/web',
+    docroot_owner => 'vagrant',
+    docroot_group => 'vagrant',
+
+    directories  => [
+        { path => '/vagrant/sample-app/web',
+            allow_override => ['All'],
+        },
+    ],
+
+    notify        => Service['apache2'],
+}
