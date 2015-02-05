@@ -18,3 +18,4 @@ sudo puppet module install gajdaw-environment --force
 sudo puppet module install gajdaw-php5 --force
 sudo puppet module install gajdaw-vcsrepository --force
 sudo puppet module install gajdaw-nodejs --force
+sudo puppet module install gajdaw-symfony --force
