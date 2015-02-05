@@ -80,11 +80,32 @@ mysql::db { 'symfony':
 #    require => Class['php_phars']
 #}
 
-file { '/var/www/html':
-    path    => '/var/www/html',
-    ensure  => link,
-    force   => true,
-    target  => '/vagrant/web',
-    require => Package['php5'],
-    notify  => Exec['php5:restart']
+class { 'apache':
+    stage         => main,
+    mpm_module    => prefork,
+    user          => vagrant,
+    group         => vagrant,
+    default_vhost => false,
+    require       => Class['php5'];
+}
+
+class {'::apache::mod::rewrite': }
+
+class {'::apache::mod::php':
+    path => "${::apache::params::lib_path}/libphp5.so",
+}
+
+apache::vhost { 'app.lh':
+    port          => '80',
+    docroot       => '/vagrant/web',
+    docroot_owner => 'vagrant',
+    docroot_group => 'vagrant',
+
+    directories  => [
+        { path => '/vagrant/web',
+            allow_override => ['All'],
+        },
+    ],
+
+    notify        => Service['apache2'],
 }
