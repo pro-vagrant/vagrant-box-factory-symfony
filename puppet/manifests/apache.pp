@@ -14,12 +14,12 @@ class {'::apache::mod::php':
 
 apache::vhost { 'app.lh':
     port          => '80',
-    docroot       => '/vagrant/sample-app/web',
+    docroot       => '/vagrant/web',
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
 
     directories  => [
-        { path => '/vagrant/sample-app/web',
+        { path => '/vagrant/web',
             allow_override => ['All'],
         },
     ],

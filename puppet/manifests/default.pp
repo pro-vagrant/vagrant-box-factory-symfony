@@ -101,7 +101,7 @@ apache::vhost { 'app.lh':
     docroot_group => 'vagrant',
 
     directories  => [
-        { path => '/vagrant/sample-app/web',
+        { path => '/vagrant/web',
             allow_override => ['All'],
         },
     ],
