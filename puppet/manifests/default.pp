@@ -8,7 +8,8 @@ stage { 'postupdate':
 
 class {
     'ubuntu':      stage => update, action => 'clean';
-    'php5':        stage => main;
+    'apache':      stage => main, default_vhost => false;
+    'php5':        stage => main, require => Class['apache'];
     'environment': stage => main;
     'nodejs':      stage => main;
 }
@@ -80,11 +81,21 @@ mysql::db { 'symfony':
 #    require => Class['php_phars']
 #}
 
-file { '/var/www/html':
-    path    => '/var/www/html',
-    ensure  => link,
-    force   => true,
-    target  => '/vagrant/web',
-    require => Package['php5'],
-    notify  => Exec['php5:restart']
+#file { '/var/www/html':
+#    path    => '/var/www/html',
+#    ensure  => link,
+#    force   => true,
+#    target  => '/vagrant/web',
+#    require => Package['php5'],
+#    notify  => Exec['php5:restart']
+#}
+
+
+apache::vhost { 'app.lh':
+    port          => '80',
+    docroot       => '/vagrant/web',
+    docroot_owner => 'vagrant',
+    docroot_group => 'vagrant',
+    notify        => Exec['php5:restart'],
 }
+
