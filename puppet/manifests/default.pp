@@ -85,7 +85,8 @@ class { 'apache':
     mpm_module    => prefork,
     user          => vagrant,
     group         => vagrant,
-    default_vhost => false;
+    default_vhost => false,
+    require       => Class['php5'];
 }
 
 class {'::apache::mod::rewrite': }
