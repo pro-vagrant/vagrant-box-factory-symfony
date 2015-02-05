@@ -24,61 +24,9 @@ class { 'php_phars':
     all   => true,
 }
 
-file { '/tmp/symfony2app':
-    ensure  => directory,
-    mode    => 0777,
-    owner   => 'vagrant',
-    group   => 'vagrant'
-}
-
-file { '/tmp/symfony2app/app':
-    ensure  => directory,
-    mode    => 0777,
-    owner   => 'vagrant',
-    group   => 'vagrant',
-    require => File['/tmp/symfony2app']
-}
-
-file { '/tmp/symfony2app/app/cache':
-    ensure  => directory,
-    mode    => 0777,
-    owner   => 'vagrant',
-    group   => 'vagrant',
-    require => File['/tmp/symfony2app/app']
-}
-
-file { '/tmp/symfony2app/app/logs':
-    ensure  => directory,
-    mode    => 0777,
-    owner   => 'vagrant',
-    group   => 'vagrant',
-    require => File['/tmp/symfony2app/app']
-}
-
-# Necessary due to symfony problems with sessions
-# stored inside shared vagrant directory.
-file { '/tmp/symfony2app/app/cache/sessions':
-    ensure  => directory,
-    mode    => 0777,
-    owner   => 'vagrant',
-    group   => 'vagrant',
-    require => File['/tmp/symfony2app/app/cache']
-}
-
+# Do not create a database.
+# It will be done in ./reload.bash
 class { 'mysql::server': }
-
-mysql::db { 'symfony':
-  user     => 'symfony',
-  password => 'symfony',
-  ensure   => present,
-  charset  => 'utf8',
-  require  => Class['mysql::server']
-}
-
-#class { 'cachedeps':
-#    stage   => main,
-#    require => Class['php_phars']
-#}
 
 class { 'apache':
     stage         => main,
@@ -100,12 +48,10 @@ apache::vhost { 'app.lh':
     docroot       => '/vagrant/web',
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
-
-    directories  => [
+    notify        => Service['apache2'],
+    directories   => [
         { path => '/vagrant/web',
             allow_override => ['All'],
         },
     ],
-
-    notify        => Service['apache2'],
 }
