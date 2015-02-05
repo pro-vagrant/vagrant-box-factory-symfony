@@ -1,13 +1,7 @@
-stage { 'update':
-    before => Stage['postupdate']
-}
-
-stage { 'postupdate':
-    before => Stage['main']
-}
+include stdlib
 
 class {
-    'ubuntu':      stage => update, action => 'clean';
+    'ubuntu':      stage => setup, action => 'clean';
     'php5':        stage => main;
     'environment': stage => main;
     'nodejs':      stage => main;
@@ -29,7 +23,7 @@ class { 'php_phars':
 class { 'mysql::server': }
 
 class { 'apache':
-    stage         => main,
+    stage         => runtime,
     mpm_module    => prefork,
     user          => vagrant,
     group         => vagrant,
