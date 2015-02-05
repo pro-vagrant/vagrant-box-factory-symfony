@@ -7,6 +7,7 @@ echo "Install Puppet modules..."
 sudo puppet module install puppetlabs-stdlib --force
 sudo puppet module install puppetlabs-mysql --force
 sudo puppet module install puppetlabs-apache --force
+sudo puppet module install puppetlabs/concat --force
 
 sudo puppet module install maestrodev/wget --force
 
