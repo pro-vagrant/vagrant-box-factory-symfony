@@ -80,25 +80,6 @@ mysql::db { 'symfony':
 #    require => Class['php_phars']
 #}
 
-#file { '/var/www/html':
-#    path    => '/var/www/html',
-#    ensure  => link,
-#    force   => true,
-#    target  => '/vagrant/web',
-#    require => Package['php5'],
-#    notify  => Exec['php5:restart']
-#}
-
-
-#apache::vhost { 'app.lh':
-#    port          => '80',
-#    docroot       => '/vagrant/web',
-#    docroot_owner => 'vagrant',
-#    docroot_group => 'vagrant',
-#    notify        => Exec['php5:restart'],
-#}
-
-
 class { 'apache':
     stage         => main,
     mpm_module    => prefork,
@@ -115,7 +96,7 @@ class {'::apache::mod::php':
 
 apache::vhost { 'app.lh':
     port          => '80',
-    docroot       => '/vagrant/sample-app/web',
+    docroot       => '/vagrant/web',
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
 
