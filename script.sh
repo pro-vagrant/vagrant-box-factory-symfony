@@ -18,7 +18,7 @@ sudo puppet module install gajdaw-php_phars --force --version 0.1.8
 sudo puppet module install gajdaw-ubuntu --force --version 0.1.11
 sudo puppet module install gajdaw-vcsrepository --force --version 0.1.3
 
-sudo puppet module install maestrodev/wget --force --version 0.5.7
+sudo puppet module install maestrodev/wget --force --version 1.5.7
 
 sudo puppet module install puppetlabs/concat --force --version 1.1.2
 sudo puppet module install puppetlabs-mysql --force --version 3.1.0
