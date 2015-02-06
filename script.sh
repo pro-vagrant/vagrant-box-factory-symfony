@@ -4,6 +4,11 @@ sleep 30
 
 echo "Install Puppet modules..."
 
+# To install latest versions use one command:
+#
+#     sudo puppet module install gajdaw-symfony
+#
+
 sudo puppet module install gajdaw-symfony --force --version 0.2.0
 sudo puppet module install gajdaw-environment --force --version 0.1.2
 sudo puppet module install gajdaw-filefetcher --force --version 0.1.6
