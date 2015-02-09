@@ -10,12 +10,10 @@ https://vagrantcloud.com/gajdaw/boxes/symfony
 
     ./build.sh
 
-How to produce a box named `symfony-v1.2.3`:
+How to produce arbitrary version, e.g. v0.4.5:
 
-    git checkout v1.2.3
-    vagrant up
-    vagrant package --output symfony-v1.2.3.box
-    vagrant box add symfony-v1.2.3 symfony-v1.2.3.box
+    git checkout v0.4.5
+    ./build.sh
 
 #3. Internals
 
