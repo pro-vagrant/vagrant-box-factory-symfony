@@ -45,6 +45,6 @@
   "post-processors": [{
     "type": "vagrant",
     "compression_level": 9,
-    "output": "symfony-v0.5.6.box"
+    "output": "symfony-v0.5.7.box"
   }]
 }
