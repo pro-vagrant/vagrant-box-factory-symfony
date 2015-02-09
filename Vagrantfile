@@ -8,8 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", 1024]
   end
 
-  currentDirectory = Dir.pwd
-  config.vm.provision "shell", inline: " echo #{currentDirectory} > box-directory.txt"
+
+  # Only during build
   config.vm.provision "file", source: "box-version.txt", destination: "box-version.txt"
   config.vm.provision "file", source: "box-name.txt", destination: "box-name.txt"
 
@@ -21,5 +21,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifest_file  = "default.pp"
     puppet.options = ['--verbose']
   end
+
+
+  # In projects
+  currentDirectory = Dir.pwd
+  config.vm.provision "shell", inline: "echo #{currentDirectory} > box-directory.txt"
 
 end
