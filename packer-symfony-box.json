@@ -11,6 +11,20 @@
   }],
   "provisioners": [
     {
+      "type": "file",
+      "source": "box-version.txt",
+      "destination": "/home/vagrant/box-version.txt"
+    },
+    {
+      "type": "file",
+      "source": "box-name.txt",
+      "destination": "/home/vagrant/box-name.txt"
+    },
+    {
+      "type": "shell",
+      "script": "copy-guestvm.sh"
+    },
+    {
       "type": "shell",
       "script": "script.sh"
     },
