@@ -8,9 +8,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", 1024]
   end
 
+  currentDirectory = Dir.pwd
+  config.vm.provision "shell", inline: " echo #{currentDirectory} > box-directory.txt"
   config.vm.provision "file", source: "box-version.txt", destination: "box-version.txt"
   config.vm.provision "file", source: "box-name.txt", destination: "box-name.txt"
 
+  config.vm.provision "shell", path: "copy-guestvm.sh"
   config.vm.provision "shell", path: "script.sh"
 
   config.vm.provision :puppet do |puppet|
