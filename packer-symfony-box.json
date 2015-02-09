@@ -21,8 +21,16 @@
       "destination": "/home/vagrant/box-name.txt"
     },
     {
+      "type": "file",
+      "source": "guestvm",
+      "destination": "/home/vagrant/guestvm"
+    },
+    {
       "type": "shell",
-      "script": "copy-guestvm.sh"
+      "inline": [
+        "sudo mv /home/vagrant/guestvm /usr/bin",
+        "sudo chmod 755 /usr/bin/guestvm"
+      ]
     },
     {
       "type": "shell",
@@ -37,6 +45,6 @@
   "post-processors": [{
     "type": "vagrant",
     "compression_level": 9,
-    "output": "packer-symfony-box.box"
+    "output": "symfony-v0.5.6.box"
   }]
 }

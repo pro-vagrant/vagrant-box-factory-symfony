@@ -8,12 +8,27 @@ https://vagrantcloud.com/gajdaw/boxes/symfony
 
 #2. How to produce this box?
 
+##2.1. With `build.sh` script
+
     ./build.sh
 
-How to produce arbitrary version, e.g. v0.4.5:
+To produce arbitrary version, e.g. v0.4.5, use:
 
     git checkout v0.4.5
     ./build.sh
+
+##2.2. Manually
+
+    vagrant up
+    vagrant package --output symfony-v0.4.5.box
+
+##2.2. With packer
+
+    packer build packer-symfony-box.json
+
+Note: you have to adjust the path leading to trusty32 box file:
+
+    "source_path": "/Users/gajdaw/.vagrant.d/boxes/ubuntu-VAGRANTSLASH-trusty32/14.04/virtualbox/box.ovf",
 
 #3. Internals
 
