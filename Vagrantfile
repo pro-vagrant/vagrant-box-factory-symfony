@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   # In projects
-  currentDirectory = Dir.pwd
-  config.vm.provision "shell", inline: "echo #{currentDirectory} > box-directory.txt"
+  # currentDirectory = Dir.pwd
+  # config.vm.provision "shell", inline: "echo #{currentDirectory} > box-directory.txt"
 
 end
