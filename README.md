@@ -43,27 +43,22 @@ Note: you have to adjust the path leading to trusty32 box file:
 
 #6. Testing and building
 
-## Test `gajdaw-symfony` Puppet module
+## Testing `gajdaw-symfony` Puppet module
 
-To test `gajdaw-symfony` module use:
-https://github.com/puppet-by-examples/puppet-modules-factory
+The procedure to test `gajdaw-symfony` Puppet module
+is outlined in module's documentation:
 
-Test module for all supported platforms:
+https://github.com/puppet-by-examples/puppet-symfony#how-do-i-test-the-module
 
-* Ubuntu 12.04 - precise - ubuntu/precise32 Vagrant box
-* Ubuntu 14.04 - trusty - ubuntu/trusty32 Vagrant box
+## Test Vagrant Box
 
-The procedure (for each platform):
+The box is supposed to work on:
 
-    set platform in Vagrantfile
-    vagrant up
-    update puppet if necessary
-    sudo puppet apply -e 'include symfony'
-    run behat/phpspec tests for the applications in sample/ directory
+* Ubuntu
+  - 14.04 (trusty) (Vagrant box: ubuntu/trusty32)
+  - 12.04 (precise) (Vagrant box: ubuntu/precise32)
 
-## Test box
-
-Test procedure:
+The procedure to test `symfony-vagrant-box-factory` box:
 
     set platform in Vagrantfile
     ./build.sh
