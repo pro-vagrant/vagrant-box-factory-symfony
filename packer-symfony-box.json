@@ -1,6 +1,6 @@
 {
   "builders": [{
-    "name": "symfony-v0.5.7",
+    "name": "symfony-v0.5.8",
     "type": "virtualbox-ovf",
     "source_path": "/Users/gajdaw/.vagrant.d/boxes/ubuntu-VAGRANTSLASH-trusty32/14.04/virtualbox/box.ovf",
     "ssh_username": "vagrant",
@@ -45,6 +45,6 @@
   "post-processors": [{
     "type": "vagrant",
     "compression_level": 9,
-    "output": "symfony-v0.5.7.box"
+    "output": "symfony-v0.5.8.box"
   }]
 }
