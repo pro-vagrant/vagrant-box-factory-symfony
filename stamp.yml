@@ -3,7 +3,14 @@ regex:       '|(?P<version>[\d\.]+)|'
 replacement: '{{ version }}'
 
 replacements:
+
   -
     filename:    'packer-symfony-box.json'
     regex:       '|"output": "symfony-v([\d\.]+).box"|'
     replacement: '"output": "symfony-v{{ version }}.box"'
+
+  -
+    filename:    'packer-symfony-box.json'
+    regex:       '|"name": "symfony-v([\d\.]+)"|'
+    replacement: '"name": "symfony-v{{ version }}"'
+
