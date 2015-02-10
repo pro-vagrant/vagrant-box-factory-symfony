@@ -20,7 +20,7 @@ To produce arbitrary version, e.g. v0.4.5, use:
 ##2.2. Manually
 
     vagrant up
-    vagrant package --output symfony-v0.4.5.box
+    vagrant package --vagrantfile VagrantfileToInclude --output "symfony-v0.4.5.box"
 
 ##2.2. With packer
 
