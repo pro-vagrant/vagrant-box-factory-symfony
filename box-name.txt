@@ -1,1 +1,1 @@
-gajdaw/symfony
+symfony
