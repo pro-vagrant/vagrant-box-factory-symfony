@@ -21,16 +21,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "mv /home/vagrant/guestvm /usr/bin && chmod 755 /usr/bin/guestvm"
 
   config.vm.provision "shell", path: "install-puppet-modules.sh"
-
-  config.vm.provision :puppet do |puppet|
-    puppet.manifests_path = "puppet/manifests"
-    puppet.manifest_file  = "default.pp"
-    puppet.options = ['--verbose']
-  end
-
-
-  # In projects
-  # currentDirectory = Dir.pwd
-  # config.vm.provision "shell", inline: "echo #{currentDirectory} > box-directory.txt"
+  config.vm.provision "puppet"
 
 end
