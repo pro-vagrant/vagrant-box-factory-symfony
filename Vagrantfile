@@ -1,15 +1,8 @@
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu1404-i386-puppetlatest-1.0.12"
 
   config.ssh.insert_key = false
-
-  config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--memory", 1024]
-  end
-
 
   # Only during build
   config.vm.provision "file", source: "box-version.txt", destination: "box-version.txt"
