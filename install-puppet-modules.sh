@@ -9,6 +9,7 @@ echo "Install Puppet modules..."
 #     sudo puppet module install gajdaw-symfony
 #
 
+sudo puppet module install gajdaw-diverse_functions --version 0.1.1 --force
 sudo puppet module install gajdaw-symfony --force --version 0.3.0
 sudo puppet module install gajdaw-environment --force --version 0.1.2
 sudo puppet module install gajdaw-filefetcher --force --version 0.1.6
