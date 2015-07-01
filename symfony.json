@@ -1,6 +1,6 @@
 {
   "builders": [{
-    "name": "symfony-v0.7.0",
+    "name": "symfony-v2.0.0",
     "type": "virtualbox-ovf",
     "source_path": "/Users/gajdaw/.vagrant.d/boxes/ubuntu-VAGRANTSLASH-trusty32/14.04/virtualbox/box.ovf",
     "ssh_username": "vagrant",
