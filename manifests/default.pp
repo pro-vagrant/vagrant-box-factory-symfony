@@ -1,3 +1,3 @@
 class { 'symfony':
-    withComposerInstall => false
+    withComposerInstall => true
 }
