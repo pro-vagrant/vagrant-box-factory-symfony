@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu1404-i386-puppetlatest-1.0.16"
+  config.vm.box = "ubuntu1404-puppet-3.0.1"
 
   config.ssh.insert_key = false
 
